@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const userController= require("../controllers/userController")
+const userRegistration=require('../controllers/userRegistration')
+const userLogger=require('../controllers/userLogin')
+const fetchUser=require('../controllers/fetchUser')
 
 router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
@@ -14,5 +17,14 @@ router.post("/login", userController.loginUser)
 router.get("/users/:userId", userController.getUserData)
 
 router.put("/users/:userId", userController.updateUser)
+
+
+//New Routes
+
+router.post("/registration",userRegistration.userRegistration)
+router.post("/user-login",userLogger.userLogger)
+
+router.get("/fetchuser/:userId",fetchUser.fetchUser)
+
 
 module.exports = router;
