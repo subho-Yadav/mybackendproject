@@ -10,7 +10,7 @@ const userLogger=async function(req,res){
         res.send("Credentials are not valid!")
     }
     else{
-    const token=jwt.sign({emailId:Uemail,password:Upassword},"COnfidential login credentials")
+    const token=jwt.sign({emailId:Uemail,password:Upassword},"Confidential login credentials")
     res.send({status:true,data:{token:token}})
     }
 }
