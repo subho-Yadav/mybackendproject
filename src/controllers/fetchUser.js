@@ -5,10 +5,10 @@ const fetchUser=async function(req,res){
     console.log(req.params)
     const user=await authUserModel.findById(req.params.userId)
     if(!user.isDeleted){
-    res.send({data:user})
+    res.status(200).send({data:user})
     }
     else{
-        res.send("User Not found!")
+        res.status(404).send("User Not found!")
     }
     }
    
